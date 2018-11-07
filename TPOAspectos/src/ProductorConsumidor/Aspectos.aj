@@ -1,8 +1,9 @@
 package ProductorConsumidor;
 
 public aspect Aspectos {
- pointcut
+ pointcut agregar() :
+	 execution (void buffer.agregar());
  
- before:
+ before: 
 	 
 }
