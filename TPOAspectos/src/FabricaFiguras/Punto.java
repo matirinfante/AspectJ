@@ -1,15 +1,17 @@
 package FabricaFiguras;
 
 public class Punto implements ElementoFigura {
-
+	private String color;
+	private int posX;
+	private int posY;
 	@Override
-	public void trasladarse() {
+	public void trasladarse(int x, int y) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void colorear() {
+	public void colorear(String color) {
 		// TODO Auto-generated method stub
 
 	}
