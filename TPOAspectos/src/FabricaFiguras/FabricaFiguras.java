@@ -14,14 +14,14 @@ public class FabricaFiguras {
 	}
 
 	public Punto armarPunto(int x, int y) {
-		
+		return null;
 	}
 
 	public Segmento armarSegmento(int inicio, int fin) {
-
+		return new Segmento();
 	}
 
 	public Circulo armarCirculo(int centro, int radio) {
-
+		return new Circulo();
 	}
 }
