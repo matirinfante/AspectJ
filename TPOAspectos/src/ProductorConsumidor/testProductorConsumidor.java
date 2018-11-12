@@ -3,9 +3,9 @@ package ProductorConsumidor;
 public class testProductorConsumidor {
 
 	public static void main(String[] args) {
-		Buffer bf = new Buffer();
+		Buffer bf = new Buffer(10);
 		Productor[] productores = new Productor[3];
-		Consumidor[] consumidores = new Consumidor[4];
+		Consumidor[] consumidores = new Consumidor[5];
 
 		for (int i = 0; i < consumidores.length; i++) {
 			consumidores[i] = new Consumidor("Consumidor " + i, bf);

@@ -1,19 +1,35 @@
 package ProductorConsumidor;
 
 public class Buffer {
-	// private int[] arreglo = new int[10];
-	//private int puntero = 0;
+	private int[] arreglo;
+	private int puntero;
+	private int TAMAÑO;
+
+	public Buffer(int tam) {
+		TAMAÑO = tam;
+		arreglo = new int[TAMAÑO];
+		puntero = 0;
+	}
 
 	public void poner(String name) {
-		// arreglo[puntero] = 1;
-		// puntero++;
-		System.out.println("Productor " + name + " : agrego a la canasta");
+		arreglo[puntero] = 1;
+		puntero++;
+		System.out.println(">>>>>>" + name + " : agrego a la canasta | Hay " + puntero + " items");
 
 	}
 
 	public void sacar(String name) {
-		// arreglo[puntero] = 0;
-		// puntero--;
-		System.out.println("Consumidor " + name + " saco de la canasta");
+		arreglo[puntero] = 0;
+		puntero--;
+		System.out.println("<<<<<<" + name + " saco de la canasta | Hay " + puntero + " items");
 	}
+
+	public boolean estaLleno() {
+		return puntero == TAMAÑO;
+	}
+
+	public boolean estaVacio() {
+		return puntero == 0;
+	}
+
 }
