@@ -1,33 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ProductorConsumidor;
 
-/**
- *
- * @author Matias
- */
 public class Buffer {
+	// private int[] arreglo = new int[10];
+	//private int puntero = 0;
 
-    MonitorSemaf lleno = new MonitorSemaf(0);
-    MonitorSemaf vacio = new MonitorSemaf(5);
-    MonitorSemaf mutex = new MonitorSemaf(1);
+	public void poner(String name) {
+		// arreglo[puntero] = 1;
+		// puntero++;
+		System.out.println("Productor " + name + " : agrego a la canasta");
 
-    public void agregar() {
-        vacio.acquireM();
-        mutex.acquireM();
-        System.out.println("Productor: agrego a la canasta");
-        mutex.releaseM();
-        lleno.releaseM();
-    }
+	}
 
-    public void sacar() {
-        lleno.acquireM();
-        mutex.acquireM();
-        System.out.println("Consumidor: saco de la canasta");
-        mutex.releaseM();
-        vacio.releaseM();
-    }
+	public void sacar(String name) {
+		// arreglo[puntero] = 0;
+		// puntero--;
+		System.out.println("Consumidor " + name + " saco de la canasta");
+	}
 }

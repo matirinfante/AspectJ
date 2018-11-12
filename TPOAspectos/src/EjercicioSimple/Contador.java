@@ -14,7 +14,7 @@ public class Contador {
 	}
 
 	public static void mostrarContador() {
-		System.out.println("Contador: "+contador);
+		System.out.println("Contador: "+ contador);
 	}
 
 	public static void sumar() {

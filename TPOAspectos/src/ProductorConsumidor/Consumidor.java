@@ -1,27 +1,25 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ProductorConsumidor;
 
-/**
- *
- * @author Matias
- */
 public class Consumidor extends Thread {
 
-    private Buffer buffer;
+	private Buffer buffer;
+	private String nombre;
 
-    public Consumidor(String nombre, Buffer bf) {
-        super(nombre);
-        this.buffer = bf;
+	public Consumidor(String name, Buffer bf) {
+		this.nombre = name;
+		this.buffer = bf;
 
-    }
+	}
 
-    public void run() {
-        while (true) {
-            buffer.sacar();
-        }
-    }
+	public void run() {
+		while (true) {
+			buffer.sacar(nombre);
+			try {
+				sleep(400);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
 }
