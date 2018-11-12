@@ -4,7 +4,7 @@ public class testProductorConsumidor {
 
 	public static void main(String[] args) {
 		Buffer bf = new Buffer(10);
-		Productor[] productores = new Productor[3];
+		Productor[] productores = new Productor[5];
 		Consumidor[] consumidores = new Consumidor[5];
 
 		for (int i = 0; i < consumidores.length; i++) {

@@ -19,8 +19,8 @@ public class Buffer {
 	}
 
 	public void sacar(String name) {
-		arreglo[puntero] = 0;
 		puntero--;
+		arreglo[puntero] = 0;
 		System.out.println("<<<<<<" + name + " saco de la canasta | Hay " + puntero + " items");
 	}
 
