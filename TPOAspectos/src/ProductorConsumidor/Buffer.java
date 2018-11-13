@@ -15,7 +15,6 @@ public class Buffer {
 		arreglo[puntero] = 1;
 		puntero++;
 		System.out.println(">>>>>>" + name + " : agrego a la canasta | Hay " + puntero + " items");
-
 	}
 
 	public void sacar(String name) {

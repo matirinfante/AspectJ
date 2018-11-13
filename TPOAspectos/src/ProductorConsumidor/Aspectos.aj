@@ -19,7 +19,6 @@ public aspect Aspectos {
 				noLleno.await();
 			}
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

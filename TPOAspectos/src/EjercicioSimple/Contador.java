@@ -8,7 +8,9 @@ public class Contador {
 		contador = 0;
 		int i = 0;
 		while(i < 100) {
+			
 			sumar();
+			
 			mostrarContador();
 		}
 	}
