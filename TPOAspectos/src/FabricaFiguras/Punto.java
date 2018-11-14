@@ -5,17 +5,22 @@ public class Punto implements ElementoFigura {
 	private int posX;
 	private int posY;
 	
-	
+	public Punto(int x,int y) {
+		posX = x;
+		posY = y;
+	}
 	@Override
 	public void trasladarse(int x, int y) {
-		// TODO Auto-generated method stub
-
+		System.out.println("Posicion Actual X= "+posX+" Y= "+posY);
+		posX += x;
+		posY += y;
+		System.out.println("Punto se traslada a X="+posX+" Y= "+posY);
 	}
 
 	@Override
 	public void colorear(String color) {
-		// TODO Auto-generated method stub
-
+		System.out.println("Pintado de color"+color);
+		this.color = color;
 	}
 
 }

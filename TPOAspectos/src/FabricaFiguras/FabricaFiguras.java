@@ -6,30 +6,31 @@ import java.util.Arrays;
 
 public class FabricaFiguras {
 	private ArrayList<ElementoFigura> colFiguras;
-	private List<String> coloresValidos;
+	private static List<String> coloresValidos = Arrays.asList("AZUL", "VERDE", "ROJO", "AMARILLO");
 	
-	//private  ElementoFigura [] lista = new ElementoFigura[10];
 	
 	
 	public FabricaFiguras() {
 		this.colFiguras = new ArrayList<>();
-		this.coloresValidos = Arrays.asList("AZUL", "VERDE", "ROJO", "AMARILLO");
 	}
 
-	public Punto armarPunto(int x, int y) {
-		return null;
-	}
-
-	public Segmento armarSegmento(int inicio, int fin) {
-		return new Segmento();
-	}
-
-	public Circulo armarCirculo(int centro, int radio) {
-		return new Circulo();
+	public void armarPunto(int x, int y) {
+		 colFiguras.add(new Punto(x,y));
 	}
 	
-	private void privado() {
-		System.out.println("Metodo privado totalmente al pedo");
+	public void armarSegmento(int inicio, int fin) {
+		 colFiguras.add(new Segmento(inicio,fin));
+	}
+
+	public void armarCirculo(int[] centro, int radio) {
+		colFiguras.add(new Circulo(centro,radio));
 	}
 	
+	public void colorear(String color, int pos) {
+		colFiguras.get(pos).colorear(color);
+	}
+	
+	public ElementoFigura getCol(int pos) {
+		return colFiguras.get(pos);
+	}
 }

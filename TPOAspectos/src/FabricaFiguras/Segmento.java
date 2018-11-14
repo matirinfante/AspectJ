@@ -3,15 +3,20 @@ package FabricaFiguras;
 public class Segmento implements ElementoFigura {
 
 	private String color;
-	private int posX;
-	private int posY;
+	private int inicio;
+	private int fin;
 
-	public void setX(int x) {
-		this.posX = x;
+	public Segmento(int inicio, int fin) {
+		this.inicio = inicio;
+		this.fin = fin;
 	}
 
-	public void setY(int y) {
-		this.posY = y;
+	public void setInicio(int x) {
+		this.inicio = x;
+	}
+
+	public void setFin(int y) {
+		this.fin = y;
 	}
 
 	public void setColor(String col) {
@@ -20,14 +25,16 @@ public class Segmento implements ElementoFigura {
 
 	@Override
 	public void trasladarse(int x, int y) {
-		// TODO Auto-generated method stub
-
+		System.out.println("Posicion Actual X= "+inicio+" Y= "+fin);
+		inicio += x;
+		fin += y;
+		System.out.println("Punto se traslada a X="+inicio+" Y= "+fin);
 	}
 
 	@Override
 	public void colorear(String color) {
-		// TODO Auto-generated method stub
-
-	}
+		System.out.println("Pintado de color"+color);
+		this.color = color;
+		}
 
 }
