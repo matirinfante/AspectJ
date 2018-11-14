@@ -6,13 +6,14 @@ import java.util.Arrays;
 
 public class FabricaFiguras {
 	private ArrayList<ElementoFigura> colFiguras;
-	private static List<String> coloresValidos = Arrays.asList("AZUL", "VERDE", "ROJO", "AMARILLO");
+	private List<String> coloresValidos = Arrays.asList("AZUL", "VERDE", "ROJO", "AMARILLO");
 	
 	
 	
 	public FabricaFiguras() {
 		this.colFiguras = new ArrayList<>();
 	}
+	
 
 	public void armarPunto(int x, int y) {
 		 colFiguras.add(new Punto(x,y));
@@ -26,11 +27,15 @@ public class FabricaFiguras {
 		colFiguras.add(new Circulo(centro,radio));
 	}
 	
-	public void colorear(String color, int pos) {
+	public void colorearFigura(String color, int pos) {
 		colFiguras.get(pos).colorear(color);
 	}
 	
 	public ElementoFigura getCol(int pos) {
 		return colFiguras.get(pos);
+	}
+	
+	public List<String> getColores(){
+		return this.coloresValidos;
 	}
 }

@@ -1,15 +1,38 @@
 package EjercicioSimple;
 
+import java.util.ArrayList;
+
 public aspect aspecto_simple {
+	ArrayList<String> lista = new ArrayList<>();
 
-	pointcut contar(): call (void Contador.sumar());
-
-	before(): contar(){
-		System.out.println("Se va a llamar el metodo SUMAR");
+//------------------------------------------------------------------------------------
+//
+//------------------------------------------------------------------------------------
+	after(Persona persona): execution (*.new(..)) && target (persona) && within(EjercicioSimple.*){
+		lista.add(persona.toString());
 	}
 
-	after(): contar(){
-		System.out.println(" Llamada al metodo SUMAR finalizada");
+//------------------------------------------------------------------------------------
+//
+//------------------------------------------------------------------------------------
+
+	after(): execution (void Main_Simple.main(..)){
+		for (String string : lista) {
+			System.out.println(string);
+		}
+	}
+	
+//------------------------------------------------------------------------------------
+//
+//------------------------------------------------------------------------------------
+	pointcut metodoLlamado(): call (* Persona.*(..));
+
+	before(): metodoLlamado(){
+		System.out.println("Un metodo es llamado");
+	}
+
+	after(): metodoLlamado(){
+		System.out.println("Llamada completada");
 	}
 
 }

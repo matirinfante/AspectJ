@@ -25,16 +25,17 @@ public class Segmento implements ElementoFigura {
 
 	@Override
 	public void trasladarse(int x, int y) {
-		System.out.println("Posicion Actual X= "+inicio+" Y= "+fin);
+		System.out.println("Posicion Actual X= " + inicio + " Y= " + fin);
 		inicio += x;
 		fin += y;
-		System.out.println("Punto se traslada a X="+inicio+" Y= "+fin);
+		System.out.println("Punto se traslada a X=" + inicio + " Y= " + fin);
 	}
 
 	@Override
 	public void colorear(String color) {
-		System.out.println("Pintado de color"+color);
+
 		this.color = color;
-		}
+		System.out.println("Pintado de color" + this.color);
+	}
 
 }

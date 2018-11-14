@@ -3,19 +3,6 @@ package FabricaFiguras;
 public aspect AspectoFiguras {
 
 //---------------------------------------------------------------------------------------------
-//POINTCUT PARA METODOS PUBLICOS DE LA CLASE FABRICAFIGURAS
-//--------------------------------------------------------------------------------------------
-	pointcut metodosPublicos(): execution (public * FabricaFiguras.*(..));
-
-	before(): metodosPublicos(){
-		System.out.println("Antes de entrar a un metodo publico de la clase FabricaFiguras");
-	}
-
-	after(): metodosPublicos(){
-		System.out.println("Saliendo de un metodo pubico de la clase FabricaFiguras");
-	}
-
-//---------------------------------------------------------------------------------------------
 //POINTCUT PARA TODOS LOS METODOS QUE COMIENCEN SON SET DE LA CLASE SEGMENTO
 //---------------------------------------------------------------------------------------------
 
@@ -33,51 +20,60 @@ public aspect AspectoFiguras {
 //POINTCUT PARA CAPTURAR LOS MOVIMIENTOS EN DIAGONAL
 //---------------------------------------------------------------------------------------------
 
-	
-    before(int x, int y): execution (void *.trasladarse(int,int)) && args(x,y) {
-		
+	before(int x, int y): execution (void *.trasladarse(int,int)) && args(x,y) {
+
 		if (x == 0 || y == 0) {
 			System.out.println("El movimiento NO es diagonal");
-		}else {
+		} else {
 			System.out.println("El movimiento ES diagonal");
 		}
 	}
-	
-	
-	
-	
+
 //---------------------------------------------------------------------------------------------
 //POINTCUT PARA COLOREAR CON EXITO Y CON EXEPCION
 //---------------------------------------------------------------------------------------------
 
-    
-    
-    
-	
-	
-	
-	
+	void around(FabricaFiguras fabrica, String color, int posicion): execution (void FabricaFiguras.colorearFigura(String,int)) && args(color,posicion) && target(fabrica){
+
+		if (fabrica.getColores().contains(color)) {
+			proceed(fabrica, color, posicion);
+		} else {
+			Exception ex = new Exception("COLOR PROHIBIDO");
+			System.out.println(ex);
+		}
+	}
+
+// ---------------------------------------------------------------------------------------------
+// POINTCUT PARA METODOS PUBLICOS DE LA CLASE FABRICAFIGURAS
+// --------------------------------------------------------------------------------------------
+
+	pointcut metodosPublicos(): execution (public * FabricaFiguras.*(..));
+
+	before(): metodosPublicos(){
+		System.out.println("Antes de entrar a un metodo publico de la clase FabricaFiguras");
+	}
+
+	after(): metodosPublicos(){
+		System.out.println("Saliendo de un metodo publico de la clase FabricaFiguras");
+	}
+
 //---------------------------------------------------------------------------------------------
 //NO PERMITIR COLOREAR UN CIRCULO CON RADIO MENOR A XX (10)
 //---------------------------------------------------------------------------------------------
 
 	void around(Circulo circulo): execution (void Circulo.colorear(String)) && target (circulo){
-		
-		if(circulo.getRadio() < 10) {
-			
+
+		if (circulo.getRadio() < 10) {
+
 			System.out.println("El Radio es menor al permitido para colorear");
-			
-		}else {
-			
+
+		} else {
+
 			System.out.println("El Radio cumple los requisitos");
 			proceed(circulo);
-			
+
 		}
-		
-		
+
 	}
-	
-	
-	
-	
+
 }
