@@ -33,17 +33,51 @@ public aspect AspectoFiguras {
 //POINTCUT PARA CAPTURAR LOS MOVIMIENTOS EN DIAGONAL
 //---------------------------------------------------------------------------------------------
 
-	//pointcut movimientoDiagonal(): execution 
-
+	
+    before(int x, int y): execution (void *.trasladarse(int,int)) && args(x,y) {
+		
+		if (x == 0 || y == 0) {
+			System.out.println("El movimiento NO es diagonal");
+		}else {
+			System.out.println("El movimiento ES diagonal");
+		}
+	}
+	
+	
+	
 	
 //---------------------------------------------------------------------------------------------
 //POINTCUT PARA COLOREAR CON EXITO Y CON EXEPCION
 //---------------------------------------------------------------------------------------------
 
+    
+    
+    
+	
+	
+	
+	
 //---------------------------------------------------------------------------------------------
-//NO PERMITIR COLOREAR UN CIRCULO CON RADIO MENOR A XX
+//NO PERMITIR COLOREAR UN CIRCULO CON RADIO MENOR A XX (10)
 //---------------------------------------------------------------------------------------------
 
+	void around(Circulo circulo): execution (void Circulo.colorear(String)) && target (circulo){
+		
+		if(circulo.getRadio() < 10) {
+			
+			System.out.println("El Radio es menor al permitido para colorear");
+			
+		}else {
+			
+			System.out.println("El Radio cumple los requisitos");
+			proceed(circulo);
+			
+		}
+		
+		
+	}
+	
+	
 	
 	
 }
