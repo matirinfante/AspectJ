@@ -8,7 +8,7 @@ public class Circulo implements ElementoFigura {
 	@Override
 	public void trasladarse(int x, int y) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
