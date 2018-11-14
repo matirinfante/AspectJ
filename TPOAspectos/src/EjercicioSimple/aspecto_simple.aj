@@ -16,7 +16,7 @@ public aspect aspecto_simple {
 //
 //------------------------------------------------------------------------------------
 
-	after(): execution (void Main_Simple.main(..)){
+	after(): execution (void *main(..)) && within(EjercicioSimple.*){
 		for (String string : lista) {
 			System.out.println(string);
 		}
