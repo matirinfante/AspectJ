@@ -30,7 +30,7 @@ public aspect AspectoFiguras {
 	}
 
 //---------------------------------------------------------------------------------------------
-//POINTCUT PARA COLOREAR CON EXITO Y CON EXEPCION
+//POINTCUT PARA COLOREAR CON EXITO Y CON EXCEPCION
 //---------------------------------------------------------------------------------------------
 
 	void around(FabricaFiguras fabrica, String color, int posicion): execution (void FabricaFiguras.colorearFigura(String,int)) && args(color,posicion) && target(fabrica){
