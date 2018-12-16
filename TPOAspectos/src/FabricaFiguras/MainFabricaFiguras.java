@@ -9,14 +9,14 @@ public class MainFabricaFiguras {
 		fab.armarPunto(8, 8);
 		
 		//Colorear figuras bien
-		fab.colorearFigura("AZUL",0);
+		fab.colorearFigura("ROSA",0);
 		fab.colorearFigura("VERDE",1);
 		fab.colorearFigura("ROJO",2);
 		
 		//Colorear figuras mal
 		fab.colorearFigura("ROSA",0);
 		fab.colorearFigura("ROSA",1);
-		fab.colorearFigura("VIOLETA",2);
+		fab.colorearFigura("VIOLETA",0);
 		
 		//Punto diagonal
 		fab.getCol(2).trasladarse(1, 1);

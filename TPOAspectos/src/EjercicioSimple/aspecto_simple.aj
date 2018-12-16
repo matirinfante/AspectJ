@@ -28,11 +28,11 @@ public aspect aspecto_simple {
 	pointcut metodoLlamado(): call (* Persona.*(..));
 
 	before(): metodoLlamado(){
-		System.out.println("Un metodo es llamado");
+		System.out.println("Un metodo es llamado"+thisJoinPoint.toString());
 	}
 
 	after(): metodoLlamado(){
-		System.out.println("Llamada completada");
+		System.out.println("Llamada completada"+thisJoinPoint.toString());
 	}
 
 }
